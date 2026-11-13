@@ -1,0 +1,280 @@
+:root {
+  --fundo: #eef2f7;
+  --superficie: #ffffff;
+  --tinta: #14233a;
+  --tinta-suave: #4a5a72;
+  --borda: #b9c4d4;
+  --acao: #1d4ed8;
+  --acao-texto: #ffffff;
+  --marca-texto: #fde047;
+  --marca-link: #fdba74;
+  --verde: #1f7a45;
+  --verde-fundo: #e3f4ea;
+  --amarelo: #8a5a00;
+  --amarelo-fundo: #fff4cc;
+  --laranja: #a3440b;
+  --laranja-fundo: #ffe6d3;
+  --vermelho: #b3141f;
+  --vermelho-fundo: #fde2e4;
+  --foco: #f59e0b;
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #0f1726;
+    --superficie: #182337;
+    --tinta: #e8eef7;
+    --tinta-suave: #a9b6c9;
+    --borda: #34445e;
+    --acao: #6b9bff;
+    --acao-texto: #0f1726;
+    --marca-texto: #a68a00;
+    --marca-link: #a8521a;
+    --verde: #7ddba0;
+    --verde-fundo: #12321f;
+    --amarelo: #ffd35c;
+    --amarelo-fundo: #3a2f08;
+    --laranja: #ffab73;
+    --laranja-fundo: #3d220f;
+    --vermelho: #ff8a92;
+    --vermelho-fundo: #43141a;
+    color-scheme: dark;
+  }
+}
+
+*, *::before, *::after { box-sizing: inherit; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--tinta);
+  font-family: "Atkinson Hyperlegible", "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1.1875rem; /* 19px: confortável para qualquer idade */
+  line-height: 1.55;
+}
+
+main {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  line-height: 1.1;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.sub {
+  font-size: 1.25rem;
+  color: var(--tinta-suave);
+  margin: 0 0 2rem;
+}
+
+label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--tinta);
+  background: var(--superficie);
+  border: 2px solid var(--borda);
+  border-radius: 10px;
+  padding: 1rem;
+  resize: vertical;
+  min-height: 10rem;
+}
+
+textarea:focus { border-color: var(--acao); }
+
+:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 2px;
+}
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 10px;
+  min-height: 3.25rem;
+  padding: 0.75rem 1.5rem;
+}
+
+.botao-principal {
+  background: var(--acao);
+  color: var(--acao-texto);
+  border: none;
+  font-weight: 700;
+  flex: 1 1 14rem;
+}
+
+.botao-secundario {
+  background: transparent;
+  color: var(--tinta);
+  border: 2px solid var(--borda);
+}
+
+.aviso {
+  color: var(--vermelho);
+  font-weight: 700;
+  margin: 0.5rem 0 0;
+}
+
+.privacidade {
+  font-size: 1rem;
+  color: var(--tinta-suave);
+  margin: 0.75rem 0 0;
+}
+
+.exemplos { margin-top: 2.5rem; }
+
+.exemplos h2 {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: var(--tinta-suave);
+  margin: 0 0 0.75rem;
+}
+
+.lista-exemplos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.lista-exemplos button {
+  background: var(--superficie);
+  color: var(--tinta);
+  border: 1px solid var(--borda);
+  min-height: 2.75rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+/* ---------- Resultado ---------- */
+
+.resultado {
+  margin-top: 2.5rem;
+  border-top: 2px solid var(--borda);
+  padding-top: 2rem;
+}
+
+.veredito {
+  border-left: 8px solid currentColor;
+  border-radius: 4px 10px 10px 4px;
+  padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+}
+
+.veredito h2 {
+  font-size: clamp(1.5rem, 4.5vw, 2rem);
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+}
+
+.veredito h2:focus { outline: none; }
+
+.veredito p { margin: 0; color: var(--tinta); }
+
+.nivel-limpo    { color: var(--verde);    background: var(--verde-fundo); }
+.nivel-atencao  { color: var(--amarelo);  background: var(--amarelo-fundo); }
+.nivel-suspeito { color: var(--laranja);  background: var(--laranja-fundo); }
+.nivel-golpe    { color: var(--vermelho); background: var(--vermelho-fundo); }
+
+.resultado h3 {
+  font-size: 1.25rem;
+  margin: 2rem 0 0.75rem;
+}
+
+/* A mensagem com marca-texto: o ponto forte da página. */
+.mensagem-marcada {
+  margin: 0;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 1.25rem;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+mark {
+  background: linear-gradient(176deg, transparent 8%, var(--marca-texto) 10%, var(--marca-texto) 88%, transparent 90%);
+  color: inherit;
+  padding: 0 0.15em;
+  border-radius: 3px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+mark.marca-link {
+  background: linear-gradient(176deg, transparent 8%, var(--marca-link) 10%, var(--marca-link) 88%, transparent 90%);
+}
+
+mark sup {
+  font-size: 0.7em;
+  font-weight: 700;
+  margin-left: 0.15em;
+}
+
+.motivos {
+  margin: 0;
+  padding-left: 1.75rem;
+}
+
+.motivos li { margin-bottom: 0.75rem; }
+
+.motivos li::marker { font-weight: 700; }
+
+.passos {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.passos li { margin-bottom: 0.5rem; }
+
+.caiu {
+  margin-top: 1.25rem;
+  background: var(--superficie);
+  border: 2px solid var(--vermelho);
+  border-radius: 10px;
+  padding: 0.75rem 1.25rem;
+}
+
+.caiu summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--vermelho);
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.caiu[open] summary { margin-bottom: 0.5rem; }
+
+.rodape {
+  margin-top: 3rem;
+  font-size: 1rem;
+  color: var(--tinta-suave);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; }
+}

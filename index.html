@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>É golpe? Verificador de mensagens suspeitas</title>
+  <meta name="description" content="Cole uma mensagem ou link suspeito e veja, em linguagem simples, se ele tem sinais de golpe. Nada sai do seu aparelho.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header class="topo">
+      <h1>Recebeu uma mensagem estranha?</h1>
+      <p class="sub">Cole aqui a mensagem ou o link. Eu mostro os sinais de golpe e o que fazer.</p>
+    </header>
+
+    <form id="form-verificar" novalidate>
+      <label for="mensagem">Mensagem ou link</label>
+      <textarea id="mensagem" rows="7" placeholder="Ex.: Oi, troquei de número, salva esse aqui…"></textarea>
+      <p id="aviso-vazio" class="aviso" hidden>Cole uma mensagem ou link no campo acima para verificar.</p>
+      <div class="acoes">
+        <button type="submit" class="botao-principal">Verificar mensagem</button>
+        <button type="button" id="limpar" class="botao-secundario">Limpar</button>
+      </div>
+      <p class="privacidade">A verificação acontece no seu aparelho. O texto não é enviado para lugar nenhum.</p>
+    </form>
+
+    <section class="exemplos" aria-labelledby="exemplos-titulo">
+      <h2 id="exemplos-titulo">Não tem uma mensagem agora? Teste com um exemplo:</h2>
+      <div class="lista-exemplos">
+        <button type="button" data-exemplo="parente">Falso parente</button>
+        <button type="button" data-exemplo="banco">Falsa central do banco</button>
+        <button type="button" data-exemplo="encomenda">Encomenda retida</button>
+      </div>
+    </section>
+
+    <section id="resultado" class="resultado" aria-live="polite" hidden></section>
+
+    <footer class="rodape">
+      <p>Esta ferramenta procura padrões comuns de golpe. Ela pode errar nos dois sentidos, então use como alerta, não como garantia. Na dúvida, confirme sempre pelo canal oficial.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
